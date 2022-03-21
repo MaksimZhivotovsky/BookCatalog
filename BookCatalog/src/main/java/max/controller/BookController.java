@@ -33,13 +33,13 @@ public class BookController {
 	}
 	
 	@GetMapping("/create")
-	@PreAuthorize("hasAuthority('developers:write')")
+	@PreAuthorize("hasAuthority('developers:read')")
     public String createBookForm(Book book){
         return "create";
     }
 	
 	@PostMapping("/create")
-	@PreAuthorize("hasAuthority('developers:write')")
+	@PreAuthorize("hasAuthority('developers:read')")
     public String createBook(Book book){
         service.save(book);
         return "redirect:/books";

@@ -56,7 +56,7 @@ public class BookRestControllerV1 {
 	@PreAuthorize("hasAuthority('developers:write')")
 	public ResponseEntity<?> update(@RequestBody Book book, @PathVariable Long id) {
 		try {
-			Book existbook = service.findeById(id);
+			service.findeById(id);
 			service.save(book);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
